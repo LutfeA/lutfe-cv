@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Official CV website of Lutfe Ali Lutfe Dawud Qashmar — Software Engineer & Developer." />
+  <meta name="theme-color" content="#07111f" />
+  <title>Lutfe Qashmar | Software Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="glow glow-one" aria-hidden="true"></div>
+  <div class="glow glow-two" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Lutfe Qashmar home">
+      <span class="brand-mark">&lt;LQ/&gt;</span>
+      <span class="brand-text">Lutfe Qashmar</span>
+    </a>
+
+    <nav class="nav-actions" aria-label="Main navigation">
+      <a class="nav-link" href="#cv">CV</a>
+      <a class="btn btn-ghost" href="admin.html">
+        <span class="icon">⌘</span>
+        Admin Login
+      </a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero container">
+      <div class="hero-copy reveal">
+        <div class="eyebrow"><span class="status-dot"></span> Software Engineer Portfolio</div>
+        <p class="code-kicker"><span class="muted">const</span> developer = <span class="accent">{</span></p>
+        <h1>
+          Lutfe Ali Lutfe<br />
+          <span class="gradient-text">“Dawud Qashmar”</span>
+        </h1>
+        <p class="arabic-name" lang="ar" dir="rtl">لطفي علي لطفي "داود قشمر"</p>
+        <p class="hero-description">
+          A clean, focused space for my professional profile. View my latest curriculum vitae directly in the browser or download the PDF version.
+        </p>
+        <p class="code-kicker code-close"><span class="accent">}</span>;</p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#cv">View CV <span>↘</span></a>
+          <button class="btn btn-secondary" id="heroDownloadBtn" type="button">Download PDF <span>↓</span></button>
+        </div>
+      </div>
+
+      <div class="terminal-card reveal delay-1" aria-label="Developer profile card">
+        <div class="terminal-topbar">
+          <div class="terminal-dots"><span></span><span></span><span></span></div>
+          <span>profile.ts</span>
+          <span></span>
+        </div>
+        <div class="terminal-body" aria-hidden="true">
+          <p><span class="line-no">01</span> <span class="purple">interface</span> <span class="cyan">Developer</span> {</p>
+          <p><span class="line-no">02</span>&nbsp;&nbsp;name: <span class="green">"Lutfe Qashmar"</span>;</p>
+          <p><span class="line-no">03</span>&nbsp;&nbsp;role: <span class="green">"Software Engineer"</span>;</p>
+          <p><span class="line-no">04</span>&nbsp;&nbsp;focus: [</p>
+          <p><span class="line-no">05</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">"Web"</span>, <span class="green">"Software"</span>, <span class="green">"Problem Solving"</span></p>
+          <p><span class="line-no">06</span>&nbsp;&nbsp;];</p>
+          <p><span class="line-no">07</span>&nbsp;&nbsp;cv: <span class="green">"always_current.pdf"</span>;</p>
+          <p><span class="line-no">08</span> }</p>
+          <p class="terminal-command"><span class="line-no">09</span> <span class="cyan">$</span> open ./cv/latest</p>
+          <p><span class="line-no">10</span> <span class="cursor">█</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cv-section container" id="cv">
+      <div class="section-heading reveal">
+        <div>
+          <span class="section-label">01 / Curriculum Vitae</span>
+          <h2>Latest CV</h2>
+        </div>
+        <div class="cv-meta" id="cvMeta">Checking latest version…</div>
+      </div>
+
+      <div class="cv-shell reveal delay-1">
+        <div class="cv-toolbar">
+          <div class="toolbar-title">
+            <span class="pdf-icon">PDF</span>
+            <div>
+              <strong>Lutfe Qashmar — CV</strong>
+              <span id="fileStatus">Loading document…</span>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-small" id="downloadBtn" type="button">Download PDF <span>↓</span></button>
+        </div>
+
+        <div class="viewer-wrap" id="viewerWrap">
+          <div class="viewer-message" id="viewerMessage">
+            <div class="loader"></div>
+            <h3>Loading CV</h3>
+            <p>Please wait while the latest version is loaded.</p>
+          </div>
+          <iframe id="pdfViewer" title="Lutfe Qashmar CV PDF" loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer container">
+    <div>
+      <span class="brand-mark small">&lt;LQ/&gt;</span>
+      <span>Designed for a software engineer.</span>
+    </div>
+    <span>© <span id="year"></span> Lutfe Qashmar</span>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

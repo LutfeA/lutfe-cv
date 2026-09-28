@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta name="theme-color" content="#07111f" />
+  <title>Admin | Lutfe Qashmar CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="admin-page">
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="glow glow-one" aria-hidden="true"></div>
+  <div class="glow glow-two" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">&lt;LQ/&gt;</span>
+      <span class="brand-text">CV Admin</span>
+    </a>
+    <a class="btn btn-ghost" href="index.html">← Public Website</a>
+  </header>
+
+  <main class="admin-main container">
+    <section class="admin-card" id="loginPanel">
+      <div class="admin-card-head">
+        <span class="section-label">Secure Access</span>
+        <h1>Admin Login</h1>
+        <p>Sign in to replace the CV displayed on the public website.</p>
+      </div>
+
+      <form class="admin-form" id="loginForm">
+        <label>
+          <span>Email</span>
+          <input id="email" type="email" autocomplete="username" placeholder="admin@example.com" required />
+        </label>
+        <label>
+          <span>Password</span>
+          <input id="password" type="password" autocomplete="current-password" placeholder="••••••••" required />
+        </label>
+        <button class="btn btn-primary btn-block" id="loginBtn" type="submit">Sign In <span>→</span></button>
+      </form>
+
+      <div class="security-note">
+        <span>◈</span>
+        <p>Authentication is handled by Supabase. The password is never stored inside your website files.</p>
+      </div>
+    </section>
+
+    <section class="admin-card dashboard hidden" id="dashboardPanel">
+      <div class="dashboard-top">
+        <div>
+          <span class="section-label">Admin Dashboard</span>
+          <h1>Manage CV</h1>
+          <p id="signedInAs">Signed in</p>
+        </div>
+        <button class="btn btn-ghost" id="logoutBtn" type="button">Sign Out</button>
+      </div>
+
+      <div class="current-file-card">
+        <div class="current-file-icon">PDF</div>
+        <div>
+          <span>Current public file</span>
+          <strong>current_cv.pdf</strong>
+          <small id="adminCurrentStatus">Checking file…</small>
+        </div>
+        <a class="btn btn-secondary btn-small" id="openCurrentBtn" href="#" target="_blank" rel="noopener">Open</a>
+      </div>
+
+      <div class="upload-zone" id="uploadZone">
+        <input id="fileInput" type="file" accept="application/pdf,.pdf" hidden />
+        <div class="upload-icon">⇧</div>
+        <h2>Upload a new CV</h2>
+        <p>Drop a PDF here or click to browse. The new file will replace the public CV automatically.</p>
+        <button class="btn btn-secondary" id="chooseFileBtn" type="button">Choose PDF</button>
+        <small>PDF only · Maximum 15 MB</small>
+      </div>
+
+      <div class="selected-file hidden" id="selectedFile">
+        <div>
+          <strong id="selectedFileName"></strong>
+          <span id="selectedFileSize"></span>
+        </div>
+        <button class="btn btn-primary" id="uploadBtn" type="button">Replace CV <span>↑</span></button>
+      </div>
+
+      <div class="progress hidden" id="progressBox">
+        <div class="progress-top"><span id="progressText">Uploading…</span><span id="progressPercent">0%</span></div>
+        <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+      </div>
+
+      <div class="success-box hidden" id="successBox">
+        <strong>✓ CV updated successfully</strong>
+        <span>The public page will show the new PDF immediately.</span>
+        <a href="index.html#cv" target="_blank" rel="noopener">View public page ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>

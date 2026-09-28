@@ -98,7 +98,7 @@
       showToast('Signed in successfully.');
     } catch (err) {
       console.error(err);
-      showToast('Invalid login or account access is not configured.', true);
+showToast(err?.message || 'Login failed.', true);
     } finally {
       loginBtn.disabled = false;
       loginBtn.textContent = 'Sign In →';
